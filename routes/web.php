@@ -24,5 +24,5 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/test', function(){
-
+    return view('test');
 });
