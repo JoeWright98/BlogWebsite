@@ -11,7 +11,8 @@ $factory->define(Post::class, function (Faker $faker) {
         'content' => $faker->text(),
         'user_id' => User::all()->random()->id,
         'author' => User::all()->random()->name,
-        'abstract' => $faker->text()
+        'abstract' => $faker->text(),
+        'title' => $faker->firstname()
 
         //'user_id'=> $faker->numberBetween($min = 1, $max = 5)
     ];

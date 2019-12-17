@@ -16,7 +16,7 @@ class PostController extends Controller
     {
         $posts = Post::latest()->get();
 
-        return view('posts.index', ['posts'=> $posts]); 
+        return view('posts.index', ['posts'=> $posts]);
     }
 
     /**
@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -35,9 +35,19 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $post = new Post();
+        $post->title = request('title');
+        $post->abstract = request('abs');
+        $post->content = request('cont');
+        $post->user_id = 1;
+        $post->author = "Janet markus";
+
+        $post->save();
+
+        return redirect('/posts');
+
     }
 
     /**
@@ -61,7 +71,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -71,9 +82,18 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Post $post)
     {
-        //
+
+      $post->title = request('title');
+      $post->abstract = request('abs');
+      $post->content = request('cont');
+      $post->user_id = 1;
+      $post->author = "Janet markus";
+
+      $post->save();
+
+      return redirect('/posts/'.$post->id);
     }
 
     /**
