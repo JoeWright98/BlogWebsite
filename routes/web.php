@@ -26,3 +26,10 @@ Route::get('/welcome', function () {
 Route::get('/test', function(){
     return view('test');
 });
+
+Route::get('/about', function(){
+    return view('about', [
+      'posts' => App\Post::take(3)->latest()->get()
+    ]);
+});
+ Route::get('/posts/{post}','PostController@show');

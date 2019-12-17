@@ -9,7 +9,8 @@ use Faker\Generator as Faker;
 $factory->define(Post::class, function (Faker $faker) {
     return [
         'content' => $faker->text(),
-        'user_id' => User::all()->random()->id
+        'user_id' => User::all()->random()->id,
+        'author' => User::all()->random()->name
 
         //'user_id'=> $faker->numberBetween($min = 1, $max = 5)
     ];
