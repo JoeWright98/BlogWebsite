@@ -15,12 +15,20 @@
         <label class="label" for="title">Title</label>
 
         <div class="control">
-          <input class="input" type="text" name="title" id="title" value="{{$post->title}}">
+          <input
+          class="input"
+          type="text"
+          name="title"
+          id="title"
+          value="{{$post->title}}">
+          @error('content')
+          <p class ="help is-danger">{{$errors->first('content')}}</p>
+          @enderror
         </div>
       </div>
 
       <div class="field">
-      <label class="label" for="abs">Abs</label>
+      <label class="label" for="abstract">Abstract</label>
 
       <div class="control">
         <textarea class="textarea" name="abs" id="abs">{{$post->abstract}}</textarea>

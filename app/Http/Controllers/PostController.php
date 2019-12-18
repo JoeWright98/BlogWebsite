@@ -37,6 +37,11 @@ class PostController extends Controller
      */
     public function store()
     {
+      request()->validate([
+        'title' => 'required',
+        'abs' => 'required',
+        'cont' => 'required'
+      ]);
         $post = new Post();
         $post->title = request('title');
         $post->abstract = request('abs');
@@ -84,6 +89,11 @@ class PostController extends Controller
      */
     public function update(Post $post)
     {
+      request()->validate([
+        'title' => 'required',
+        'abs' => 'required',
+        'cont' => 'required'
+      ]);
 
       $post->title = request('title');
       $post->abstract = request('abs');
