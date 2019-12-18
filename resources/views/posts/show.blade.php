@@ -18,6 +18,7 @@
                     @foreach($post->tags as $tag)
                     <a href="/posts?tag={{$tag->tag}}">{{$tag->tag}}</a>
                     @endforeach
+                  <p>This was posted by {{$post->author}}</p>
             		</div>
             </div>
       </div>

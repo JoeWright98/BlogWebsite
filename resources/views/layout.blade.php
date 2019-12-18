@@ -16,15 +16,23 @@
   <div id="header-wrapper">
     <div id="header" class="container">
       <div id="logo">
-        <h1><a href="/">SimpleWork</a></h1>
+        <h1><a href="/">FaceBlog</a></h1>
       </div>
       <div id="menu">
         <ul>
           <li class="{{ Request::path() === '/' ? 'current_page_item' : '' }}"><a href="/" accesskey="1" title="">Homepage</a></li>
-          <li class="{{ Request::path() === 'clients' ? 'current_page_item' : '' }}"><a href="/" accesskey="2" title="">Our Clients</a></li>
-          <li class="{{ Request::path() === 'about' ? 'current_page_item' : '' }}"><a href="/about" accesskey="3" title="">About Us</a></li>
-          <li class="{{ Request::path() === 'posts' ? 'current_page_item' : '' }}"><a href="/posts" accesskey="4" title="">Posts</a></li>
+          <li class="{{ Request::path() === 'Create' ? 'current_page_item' : '' }}"><a href="/posts/create" accesskey="2" title="">Create a post</a></li>
+          <li class="{{ Request::path() === 'about' ? 'current_page_item' : '' }}"><a href="/index" accesskey="3" title="">IDK</a></li>
+          <li class="{{ Request::path() === 'posts' ? 'current_page_item' : '' }}"><a href="/posts" accesskey="4" title="">News feed</a></li>
+
+          @if (Auth::check())
+          <li class="{{ Request::path() === 'logout' ? 'current_page_item' : '' }}"><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();" accesskey="5" title="">  {{ __('Logout') }}</a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form></li>
+          @else
           <li class="{{ Request::path() === 'login' ? 'current_page_item' : '' }}"><a href="/login" accesskey="5" title="">Login/Register</a></li>
+          @endif
         </ul>
       </div>
     </div>

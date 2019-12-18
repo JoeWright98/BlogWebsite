@@ -4,13 +4,14 @@
 
 use App\Post;
 use App\User;
+use App\Profile;
 use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
     return [
         'content' => $faker->paragraph(),
         'user_id' => User::all()->random()->id,
-        'author' => User::all()->random()->name,
+        'author' => Profile::all()->random()->name,
         'abstract' => $faker->sentence(),
         'title' => $faker->sentence()
 

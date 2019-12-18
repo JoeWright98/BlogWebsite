@@ -50,14 +50,14 @@ class PostController extends Controller
         'title' => 'required',
         'abs' => 'required',
         'cont' => 'required'
-        
+
       ]);
         $post = new Post();
         $post->title = request('title');
         $post->abstract = request('abs');
         $post->content = request('cont');
         $post->user_id = 1;
-        $post->author = "Janet markus";
+        $post->author = request('author');
 
         $post->save();
 
