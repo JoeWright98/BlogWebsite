@@ -39,3 +39,7 @@ Route::get('/posts/{post}','PostController@show');
 Route::get('/posts', 'PostController@index');
 Route::get('/posts/{post}/edit','PostController@edit');
 Route::put('/posts/{post}', 'PostController@update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

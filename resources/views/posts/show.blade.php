@@ -13,6 +13,11 @@
             			<p><img src="/images/banner.jpg" alt="" class="image image-full" /> </p>
 
             			<p>{{$post->content}}</p>
+
+                  <p style="margin-top: 1em">
+                    @foreach($post->tags as $tag)
+                    <a href="/posts?tag={{$tag->tag}}">{{$tag->tag}}</a>
+                    @endforeach
             		</div>
             </div>
       </div>

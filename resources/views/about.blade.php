@@ -20,7 +20,7 @@
             			<ul class="style1">
                     @foreach ($posts as $post)
             				<li class="first">
-            					<h3><a href="/posts/{{$post->id}}">{{$post->author}}</a></h3>
+            					<h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
             					<p>{{ $post->abstract}}</p>
             				</li>
                     @endforeach

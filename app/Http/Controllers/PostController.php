@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +15,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->get();
+      if(request('tag')){
+        $posts = Tag::where('tag', request('tag'))->firstOrFail()->posts;
+
+      }else{
+          $posts = Post::latest()->get();
+      }
+
 
         return view('posts.index', ['posts'=> $posts]);
     }
@@ -26,7 +33,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create', [
+          'tags' => Tag::all()
+        ]);
     }
 
     /**
@@ -41,6 +50,7 @@ class PostController extends Controller
         'title' => 'required',
         'abs' => 'required',
         'cont' => 'required'
+        
       ]);
         $post = new Post();
         $post->title = request('title');
@@ -50,6 +60,8 @@ class PostController extends Controller
         $post->author = "Janet markus";
 
         $post->save();
+
+        $post->tags()->attach(request('tags'));
 
         return redirect('/posts');
 

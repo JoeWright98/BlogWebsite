@@ -8,11 +8,11 @@ use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
     return [
-        'content' => $faker->text(),
+        'content' => $faker->paragraph(),
         'user_id' => User::all()->random()->id,
         'author' => User::all()->random()->name,
-        'abstract' => $faker->text(),
-        'title' => $faker->firstname()
+        'abstract' => $faker->sentence(),
+        'title' => $faker->sentence()
 
         //'user_id'=> $faker->numberBetween($min = 1, $max = 5)
     ];

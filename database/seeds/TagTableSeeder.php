@@ -12,10 +12,7 @@ class TagTableSeeder extends Seeder
      */
     public function run()
     {
-        $t = new Tag;
-        $t->tag = "Im a tag";
-        $t->save();
-        $t->posts()->attach(1);
+        factory(App\Tag::class, 5)->create();
 
     }
 }
