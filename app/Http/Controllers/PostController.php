@@ -19,10 +19,8 @@ class PostController extends Controller
       if(request('tag')){
         $posts = Tag::where('tag', request('tag'))->firstOrFail()->posts;
 
-      }else if (request('name')){
-        $posts = User::where('author', request('name'))->firstOrFail()->posts;
       }else{
-        $posts = Post::paginate(3);
+        $posts = Post::latest()->paginate(3);
       }
 
 
