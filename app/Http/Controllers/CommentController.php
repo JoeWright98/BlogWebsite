@@ -38,7 +38,7 @@ class CommentController extends Controller
       $comment = new Comment();
       $comment->content = request('ccont');
       $comment->user_id = request('id');
-      $comment->post_id = 7;
+      $comment->post_id = 3;
 
 
       $comment->save();

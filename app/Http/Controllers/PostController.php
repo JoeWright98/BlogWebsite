@@ -22,7 +22,7 @@ class PostController extends Controller
       }else if (request('name')){
         $posts = User::where('author', request('name'))->firstOrFail()->posts;
       }else{
-        $posts = Post::latest()->get();
+        $posts = Post::paginate(3);
       }
 
 
