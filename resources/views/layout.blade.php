@@ -21,8 +21,12 @@
       <div id="menu">
         <ul>
           <li class="{{ Request::path() === '/' ? 'current_page_item' : '' }}"><a href="/" accesskey="1" title="">Homepage</a></li>
-          <li class="{{ Request::path() === 'Create' ? 'current_page_item' : '' }}"><a href="/posts/create" accesskey="2" title="">Create a post</a></li>
-          <li class="{{ Request::path() === 'about' ? 'current_page_item' : '' }}"><a href="/index" accesskey="3" title="">IDK</a></li>
+          @if (Auth::check())
+          <li class="{{ Request::path() === 'create' ? 'current_page_item' : '' }}"><a href="/posts/create" accesskey="2" title="">Create a post</a></li>
+          @endif
+          @if (Auth::check())
+          <li class="{{ Request::path() === 'profile' ? 'current_page_item' : '' }}"><a href="/profile" accesskey="3" title="">My Profile</a></li>
+          @endif
           <li class="{{ Request::path() === 'posts' ? 'current_page_item' : '' }}"><a href="/posts" accesskey="4" title="">News feed</a></li>
 
           @if (Auth::check())

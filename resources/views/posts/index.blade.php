@@ -13,10 +13,10 @@
 
             			<p><img src="/images/banner.jpg" alt="" class="image image-full" /> </p>
 
-            			<p>{{ $post->abstract}}</p>
+            			<p>{{ $post->abstract}} (posted by {{$post->author}})</p>
             		</div>
                 @empty
-                <p>No posts with that tag yet.</p>
+                <p>No posts with that tag or author yet.</p>
                 @endforelse
             </div>
       </div>

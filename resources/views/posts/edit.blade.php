@@ -41,6 +41,12 @@
       <textarea class="textarea" name="cont" id="cont">{{$post->content}}</textarea>
     </div>
   </div>
+  <div class="control">
+
+    <input class="input" value="{{Auth::user()->name}}"  id="author" name="author" type="hidden">
+
+  </div>
+  </div>
 
   <div class="field is-grouped">
     <div class="control">

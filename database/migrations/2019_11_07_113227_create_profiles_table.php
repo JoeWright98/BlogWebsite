@@ -17,6 +17,7 @@ class CreateProfilesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->unsignedInteger('user_id');
+            $table->string('bio');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->

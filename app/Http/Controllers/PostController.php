@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
@@ -18,8 +19,10 @@ class PostController extends Controller
       if(request('tag')){
         $posts = Tag::where('tag', request('tag'))->firstOrFail()->posts;
 
+      }else if (request('name')){
+        $posts = User::where('author', request('name'))->firstOrFail()->posts;
       }else{
-          $posts = Post::latest()->get();
+        $posts = Post::latest()->get();
       }
 
 
@@ -111,7 +114,7 @@ class PostController extends Controller
       $post->abstract = request('abs');
       $post->content = request('cont');
       $post->user_id = 1;
-      $post->author = "Janet markus";
+      $post->author = request('author');
 
       $post->save();
 

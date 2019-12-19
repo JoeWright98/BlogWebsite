@@ -60,13 +60,13 @@
 
   </div>
 </div>
-  <label class="label" for="author">Author</label>
+
 <div class="control">
 
-  <input class="input" value="{{Auth::user()->name}}" disabled id="author" name="author" type="text">
+  <input class="input" value="{{Auth::user()->name}}"  id="author" name="author" type="hidden">
 
 </div>
-</div>
+  
   <div class="field is-grouped">
     <div class="control">
       <button class="button is-link" type="submit">Submit</button>

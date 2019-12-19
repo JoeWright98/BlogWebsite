@@ -19,6 +19,14 @@
                     <a href="/posts?tag={{$tag->tag}}">{{$tag->tag}}</a>
                     @endforeach
                   <p>This was posted by {{$post->author}}</p>
+                  <h2>Comments</h2>
+                  @foreach($post->comments as $comment)
+                  <p>{{$comment->user->name}} commented: {{$comment->content}}</p>
+                  @endforeach
+                  <a href="/comments/create">Add Comment</a>  
+
+
+
             		</div>
             </div>
       </div>

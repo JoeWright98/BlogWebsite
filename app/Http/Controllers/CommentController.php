@@ -24,7 +24,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        return view('comments.create');
     }
 
     /**
@@ -35,7 +35,16 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $comment = new Comment();
+      $comment->content = request('ccont');
+      $comment->user_id = request('id');
+      $comment->post_id = 7;
+
+
+      $comment->save();
+
+
+      return redirect('/posts');
     }
 
     /**
